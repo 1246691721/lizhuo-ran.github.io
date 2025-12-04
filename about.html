@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="关于李卓然 - ENFP 在读硕士的故事">
+  <title>关于我 | 李卓然 ✨</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌟</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 手写体字体补充 */
+    @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&family=Long+Cang&display=swap');
+    
+    /* 关于页面特有样式 */
+    .about-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+    }
+    
+    .about-intro {
+      max-width: 800px;
+    }
+    
+    .about-avatar {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 2rem;
+      background: var(--gradient-sunset);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    
+    .story-section:nth-child(even) {
+      direction: rtl;
+    }
+    
+    .story-section:nth-child(even) > * {
+      direction: ltr;
+    }
+    
+    .story-image {
+      height: 400px;
+      background: var(--gradient-cool);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .story-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .story-content p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    /* 技能展示 */
+    .skills-section {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+      margin-bottom: 4rem;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .skill-item {
+      text-align: center;
+    }
+    
+    .skill-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .skill-bar {
+      height: 8px;
+      background: var(--bg-card);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: var(--gradient-warm);
+      border-radius: var(--radius-full);
+      transition: width 1s ease;
+    }
+    
+    /* 时间线 */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-sunset);
+      border-radius: var(--radius-full);
+    }
+    
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 50%;
+      padding-left: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .timeline-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-right: 2rem;
+      padding-left: 50%;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border: 4px solid var(--bg-primary);
+      border-radius: 50%;
+    }
+    
+    .timeline-content {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      max-width: 350px;
+      transition: var(--transition);
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .timeline-year {
+      display: inline-block;
+      background: var(--gradient-warm);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    
+    /* 兴趣爱好 */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .hobby-item {
+      background: var(--bg-card);
+      padding: 2rem 1.5rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-bounce);
+    }
+    
+    .hobby-item:hover {
+      transform: translateY(-10px) rotate(3deg);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .hobby-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hobby-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    /* ENFP 详解 */
+    .enfp-detail {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .enfp-letter {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .enfp-letter:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .enfp-char {
+      font-size: 3rem;
+      font-weight: 700;
+      background: var(--gradient-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    
+    .enfp-meaning {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 768px) {
+      .story-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .story-section:nth-child(even) {
+        direction: ltr;
+      }
+      
+      .timeline::before {
+        left: 20px;
+      }
+      
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        padding-left: 60px;
+        padding-right: 1rem;
+        justify-content: flex-start;
+      }
+      
+      .timeline-dot {
+        left: 20px;
+      }
+      
+      .enfp-detail {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .skills-section {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 页面加载动画 -->
+  <div class="page-loader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- 动态背景装饰 -->
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- 光标跟随效果 -->
+  <div class="cursor-glow"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">卓然 ✨</a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html" class="active">关于我</a></li>
+        <li><a href="blog.html">博客</a></li>
+        <li><a href="portfolio.html">作品集</a></li>
+        <li><a href="contact.html">联系</a></li>
+      </ul>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 关于我头部 -->
+  <section class="about-hero">
+    <div class="about-intro reveal">
+      <div class="about-avatar"><img src="Gemini_Generated_Image_n3gpfwn3gpfwn3gp.png" alt="李卓然" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+      <h1 class="hero-title">
+        嗨，我是<span class="name">李卓然</span>
+      </h1>
+      <p class="hero-subtitle">华中农业大学在读硕士 · 永远充满好奇心的探索者</p>
+      <div class="personality-tag">
+        <span>🦋</span> ENFP - 竞选者人格
+      </div>
+    </div>
+  </section>
+
+  <!-- ENFP 解读 -->
+  <section class="section">
+    <div class="section-header reveal">
+      <p class="section-tag">🧠 性格密码</p>
+      <h2 class="section-title">解读 <span>ENFP</span></h2>
+    </div>
+    <div class="enfp-detail">
+      <div class="enfp-letter reveal">
+        <div class="enfp-char">E</div>
+        <div class="enfp-meaning">外向 Extraverted</div>
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">从与人互动中获取能量</p>
+      </div>
+      <div class="enfp-letter reveal">
+        <div class="enfp-char">N</div>
+        <div class="enfp-meaning">直觉 Intuitive</div>
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">关注可能性和未来</p>
+      </div>
+      <div class="enfp-letter reveal">
+        <div class="enfp-char">F</div>
+        <div class="enfp-meaning">情感 Feeling</div>
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">以价值观和情感做决定</p>
+      </div>
+      <div class="enfp-letter reveal">
+        <div class="enfp-char">P</div>
+        <div class="enfp-meaning">知觉 Perceiving</div>
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">灵活开放，享受自发</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 我的故事 -->
+  <section class="section">
+    <div class="section-header reveal">
+      <p class="section-tag">📖 我的故事</p>
+      <h2 class="section-title">关于<span>我</span></h2>
+    </div>
+    
+    <div class="story-section reveal">
+      <div class="story-image">🎓</div>
+      <div class="story-content">
+        <h3>学术旅程</h3>
+        <p>
+          作为华中农业大学的在读硕士，我正在探索学术的无限可能。
+          研究对我来说不仅是任务，更是一场发现未知的冒险。
+        </p>
+        <p>
+          我相信学习是终身的旅程，每一个新知识都是打开新世界的钥匙。
+        </p>
+      </div>
+    </div>
+    
+    <div class="story-section reveal">
+      <div class="story-image" style="background: var(--gradient-warm);">🌟</div>
+      <div class="story-content">
+        <h3>ENFP 的日常</h3>
+        <p>
+          我的脑海里总是充满各种奇思妙想，有时候一个想法会带出十个新想法。
+          这让我的生活充满惊喜，也偶尔让我的待办清单变得有点... 有创意。
+        </p>
+        <p>
+          我热爱与人交流，每一次对话都可能激发新的灵感。
+        </p>
+      </div>
+    </div>
+    
+    <div class="story-section reveal">
+      <div class="story-image" style="background: var(--gradient-sunset);">🚀</div>
+      <div class="story-content">
+        <h3>未来愿景</h3>
+        <p>
+          我希望能将热情转化为影响力，用自己的方式让世界变得更有趣一点。
+          无论是通过研究、创作还是与人连接，我相信每个人都能创造意义。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 人生时间线 -->
+  <section class="section">
+    <div class="section-header reveal">
+      <p class="section-tag">⏳ 人生轨迹</p>
+      <h2 class="section-title">我的<span>旅程</span></h2>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2023</span>
+          <h4 class="timeline-title">华中农业大学研究生 🎓</h4>
+          <p class="timeline-desc">进入华中农业大学攻读硕士学位，开始探索更深层次的知识领域</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2022</span>
+          <h4 class="timeline-title">发现 ENFP 的自己 🦋</h4>
+          <p class="timeline-desc">通过 MBTI 测试更深入地了解自己，拥抱独特的性格特质</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2019</span>
+          <h4 class="timeline-title">大学生活开始 📚</h4>
+          <p class="timeline-desc">进入大学，开启了充满可能性的新篇章</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">更早</span>
+          <h4 class="timeline-title">好奇心的萌芽 🌱</h4>
+          <p class="timeline-desc">从小就对世界充满好奇，总是问"为什么"和"如果"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技能 -->
+  <section class="section">
+    <div class="skills-section">
+      <div class="section-header reveal">
+        <p class="section-tag">💪 我的能力</p>
+        <h2 class="section-title">技能<span>树</span></h2>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-item reveal">
+          <div class="skill-icon">🎨</div>
+          <div class="skill-name">创意思维</div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 95%;"></div>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-icon">🗣️</div>
+          <div class="skill-name">沟通表达</div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%;"></div>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-icon">📊</div>
+          <div class="skill-name">研究能力</div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-icon">🤝</div>
+          <div class="skill-name">团队协作</div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 92%;"></div>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-icon">💻</div>
+          <div class="skill-name">数字技能</div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div class="skill-item reveal">
+          <div class="skill-icon">🌍</div>
+          <div class="skill-name">适应能力</div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 88%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 兴趣爱好 -->
+  <section class="section">
+    <div class="section-header reveal">
+      <p class="section-tag">🎯 兴趣爱好</p>
+      <h2 class="section-title">我喜欢<span>什么</span></h2>
+    </div>
+    
+    <div class="hobbies-grid">
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">📚</div>
+        <div class="hobby-name">阅读</div>
+      </div>
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">✍️</div>
+        <div class="hobby-name">写作</div>
+      </div>
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">🎵</div>
+        <div class="hobby-name">音乐</div>
+      </div>
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">🎬</div>
+        <div class="hobby-name">电影</div>
+      </div>
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">🏃</div>
+        <div class="hobby-name">运动</div>
+      </div>
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">✈️</div>
+        <div class="hobby-name">旅行</div>
+      </div>
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">🍳</div>
+        <div class="hobby-name">烹饪</div>
+      </div>
+      <div class="hobby-item reveal">
+        <div class="hobby-icon">🎮</div>
+        <div class="hobby-name">游戏</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>
+      用 <span class="footer-heart">❤️</span> 和 ☕ 制作 · 
+      © 2024 李卓然 · 
+      <a href="#">ENFP 探索者</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
